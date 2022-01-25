@@ -1,0 +1,11 @@
+ 15.0.2 (x86_64) "Oracle Corporation" -
+ "OpenJDK 15.0.2" /Users/jdavault/Library/Java/JavaVirtualMachines/openjdk-15.0.2/Contents/Home
+
+# List installed JDKs
+/usr/libexec/java_home -V
+
+# Switch active JDK
+export JAVA_HOME=`/usr/libexec/java_home -v 15.0.2`
+
+# Example
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_292`
