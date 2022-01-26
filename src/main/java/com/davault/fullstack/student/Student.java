@@ -2,7 +2,7 @@ package com.davault.fullstack.student;
 
 import lombok.*;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,28 +14,28 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Data -- requires fields to be final
-@Entity
-@Table
+//@Entity
+//@Table
 public class Student {
-    @Id
-    @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            generator = "student_sequence",
-            strategy = GenerationType.SEQUENCE)
+    //@Id
+    //@SequenceGenerator(
+    //        name = "student_sequence",
+    //        sequenceName = "student_sequence",
+    //        allocationSize = 1
+    //)
+    //@GeneratedValue(
+    //        generator = "student_sequence",
+    //        strategy = GenerationType.SEQUENCE)
     private Long id;
     @NotBlank
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String name;
     @Email
-    @Column(nullable = false, unique = true)
+    //@Column(nullable = false, unique = true)
     private String email;
     @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    //@Enumerated(EnumType.STRING)
+    //@Column(nullable = false)
     private Gender gender;
 
     public Student(String name, String email, Gender gender) {
