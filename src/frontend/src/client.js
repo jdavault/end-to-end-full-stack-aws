@@ -1,6 +1,6 @@
 import fetch from 'unfetch';
 
-const checkStatus = response => {
+const getValidatedResponse = response => {
   if (response.ok) {
     return response;
   }
@@ -11,8 +11,9 @@ const checkStatus = response => {
 }
 
 export const getAllStudents = () =>
-  fetch("api/v1/students")
-    .then(checkStatus);
+  fetch("api/v1/students", {
+    method: 'GET'
+  }).then(getValidatedResponse);
 
 export const addNewStudent = student =>
   fetch("api/v1/students", {
@@ -22,9 +23,9 @@ export const addNewStudent = student =>
     method: 'POST',
     body: JSON.stringify(student)
   }
-  ).then(checkStatus)
+  );
 
 export const deleteStudent = studentId =>
   fetch(`api/v1/students/${studentId}`, {
     method: 'DELETE'
-  }).then(checkStatus);
+  }).then(getValidatedResponse);

@@ -4,7 +4,7 @@ import {
   Layout,
   Menu,
   Breadcrumb,
-  Table, Spin, Empty
+  Table, Spin, Empty, Button
 } from 'antd';
 import {
   DesktopOutlined,
@@ -12,8 +12,9 @@ import {
   FileOutlined,
   TeamOutlined,
   UserOutlined,
-  LoadingOutlined
+  LoadingOutlined, DownloadOutlined, PlusOutlined
 } from '@ant-design/icons';
+import StudentDrawerForm from "./components/StudentDrawerForm";
 
 import './App.css';
 
@@ -49,6 +50,7 @@ function App() {
   const [students, setStudents] = useState([]);
   const [collapsed, setCollapsed] = useState(false);
   const [fetching, setFetching] = useState(true);
+  const [showDrawer, setShowDrawer] = useState(false);
 
   const fetchStudents = () =>
     getAllStudents()
@@ -66,59 +68,72 @@ function App() {
 
   const renderStudents = () => {
     if (fetching) {
-      return <Spin indicator={antIcon} />
+      return <Spin indicator={antIcon}/>
     }
     if (students.length <= 0) {
-      return <Empty />;
+      return <Empty/>;
     }
-    return <Table
-      dataSource={students}
-      columns={columns}
-      bordered
-      title={() => 'Students'}
-      pagination={{ pageSize: 50 }}
-      scroll={{ y: 240 }}
-      rowKey={(student) => student.id}
-    />;
+    return <>
+      <StudentDrawerForm
+          showDrawer={showDrawer}
+          setShowDrawer={setShowDrawer}
+      />
+      <Table
+          dataSource={students}
+          columns={columns}
+          bordered
+          title={() =>
+              <Button
+                  onClick={() => setShowDrawer(!showDrawer)}
+                  type="primary" shape="round" icon={<PlusOutlined/>} size="small">
+                Add New Student
+              </Button>
+          }
+          pagination={{pageSize: 50}}
+          scroll={{y: 500}}
+          rowKey={student => student.id}
+      />
+    </>
+
   }
 
-  return <Layout style={{ minHeight: '100vh' }}>
+  return <Layout style={{minHeight: '100vh'}}>
     <Sider collapsible collapsed={collapsed}
-      onCollapse={setCollapsed}>
-      <div className="logo" />
+           onCollapse={setCollapsed}>
+      <div className="logo"/>
       <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+        <Menu.Item key="1" icon={<PieChartOutlined/>}>
           Option 1
         </Menu.Item>
-        <Menu.Item key="2" icon={<DesktopOutlined />}>
+        <Menu.Item key="2" icon={<DesktopOutlined/>}>
           Option 2
         </Menu.Item>
-        <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+        <SubMenu key="sub1" icon={<UserOutlined/>} title="User">
           <Menu.Item key="3">Tom</Menu.Item>
           <Menu.Item key="4">Bill</Menu.Item>
           <Menu.Item key="5">Alex</Menu.Item>
         </SubMenu>
-        <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
+        <SubMenu key="sub2" icon={<TeamOutlined/>} title="Team">
           <Menu.Item key="6">Team 1</Menu.Item>
           <Menu.Item key="8">Team 2</Menu.Item>
         </SubMenu>
-        <Menu.Item key="9" icon={<FileOutlined />}>
+        <Menu.Item key="9" icon={<FileOutlined/>}>
           Files
         </Menu.Item>
       </Menu>
     </Sider>
     <Layout className="site-layout">
-      <Header className="site-layout-background" style={{ padding: 0 }} />
-      <Content style={{ margin: '0 16px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
+      <Header className="site-layout-background" style={{padding: 0}}/>
+      <Content style={{margin: '0 16px'}}>
+        <Breadcrumb style={{margin: '16px 0'}}>
           <Breadcrumb.Item>User</Breadcrumb.Item>
           <Breadcrumb.Item>Bill</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+        <div className="site-layout-background" style={{padding: 24, minHeight: 360}}>
           {renderStudents()}
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>By Davault Inc</Footer>
+      <Footer style={{textAlign: 'center'}}>Davault Inc.</Footer>
     </Layout>
   </Layout>
 }
