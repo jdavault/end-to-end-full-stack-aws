@@ -9,7 +9,7 @@ class FullStackAmigoApplicationTests {
 
     @Test
     void contextLoads() {
-        Assertions.fail("Ooops");
+        //Assertions.fail("Ooops");
     }
 
 }
