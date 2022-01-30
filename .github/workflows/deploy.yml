@@ -8,8 +8,8 @@ on:
 
 env:
   # Postgres
-  POSTGRESQL_VERSION: 13.1
-  POSTGRESQL_DB: springfullstack
+  POSTGRESQL_VERSION: 12.7
+  POSTGRESQL_DB: aav8vpdy7su8e3
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: password
   # Java
