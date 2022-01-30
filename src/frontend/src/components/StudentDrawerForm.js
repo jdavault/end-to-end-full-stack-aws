@@ -12,24 +12,34 @@ function StudentDrawerForm({ showDrawer, setShowDrawer, fetchStudents }) {
     const [submitting, setSubmitting] = useState(false);
 
     const onFinish = student => {
-        setSubmitting(true);
-        console.log(JSON.stringify(student, null, 2));
+        setSubmitting(true)
+        console.log(JSON.stringify(student, null, 2))
         addNewStudent(student)
             .then(() => {
-                console.log("Student Added")
+                console.log("student added")
                 onCLose();
-                successNotification("Student Successfully Added"
-                    , `${student.name} was successfully added to the system`);
+                successNotification(
+                    "Student successfully added",
+                    `${student.name} was added to the system`
+                )
                 fetchStudents();
             }).catch(err => {
-                console.log(err)
+            console.log(err);
+            err.response.json().then(res => {
+                console.log(res);
+                errorNotification(
+                    "There was an issue",
+                    `${res.message} [${res.status}] [${res.error}]`,
+                    "bottomLeft"
+                )
+            });
         }).finally(() => {
             setSubmitting(false);
         })
     };
 
     const onFinishFailed = errorInfo => {
-        console.log(JSON.stringify(errorInfo, null, 2));
+        alert(JSON.stringify(errorInfo, null, 2));
     };
 
     return <Drawer
