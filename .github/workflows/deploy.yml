@@ -12,10 +12,13 @@ env:
   POSTGRESQL_DB: aav8vpdy7su8e3
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: password
+
   # Java
-  JAVA_VERSION: 1.15
+    JAVA_VERSION: 1.15
+
   # DockerHub
   DOCKER_HUB_USERNAME: jdavault
+
   # AWS & Elastic Bean Stalk
   AWS_REGION: us-west-1
   EB_ENVIRONMENT_NAME: Springbootreactfullstack-env
