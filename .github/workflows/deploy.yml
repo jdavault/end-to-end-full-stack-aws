@@ -9,10 +9,9 @@ on:
 env:
   # Postgres
   POSTGRESQL_VERSION: 12.7
-  POSTGRESQL_DB: aav8vpdy7su8e3
+  POSTGRESQL_DB: springfullstack
   POSTGRESQL_USER: postgres
-  POSTGRESQL_PASSWORD: password
-
+  POSTGRESQL_PASSWORD: p@55w0Rd
   # Java
     JAVA_VERSION: 1.15
 
@@ -112,7 +111,7 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-          text: ':tada: :arrow_right: http://springbootreactfullstack-env.eba-3imjbkem.eu-west-1.elasticbeanstalk.com'
+          text: ':tada: :arrow_right: http://springbootreactfullstack-env.eba-3cpmwf3r.us-west-1.elasticbeanstalk.com'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
