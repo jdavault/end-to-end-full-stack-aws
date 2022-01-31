@@ -13,7 +13,7 @@ public class StudentService {
 
     private final StudentRepository studentRepository;
 
-    public List<Student> getAllStudent(){
+    public List<Student> getAllStudents(){
         return studentRepository.findAll();
     }
 

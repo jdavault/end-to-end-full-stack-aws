@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 
 @AllArgsConstructor
@@ -17,7 +16,7 @@ public class StudentController {
     @GetMapping
     public List<Student> getAllStudents() {
         //throw new IllegalStateException("oops error");
-        return studentService.getAllStudent();
+        return studentService.getAllStudents();
     }
 
     @PostMapping
