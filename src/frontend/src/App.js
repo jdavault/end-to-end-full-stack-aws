@@ -4,7 +4,7 @@ import {
   Layout,
   Menu,
   Breadcrumb,
-  Table, Spin, Empty, Button, Badge, Tag, Avatar, Radio, Popconfirm, Image
+  Table, Spin, Empty, Button, Badge, Tag, Avatar, Radio, Popconfirm, Image, Divider
 } from 'antd';
 import {
   DesktopOutlined,
@@ -212,8 +212,9 @@ function App() {
       <Footer style={{textAlign: 'center'}}>
         <Image width={75}
                src="https://user-images.githubusercontent.com/3696424/151680918-793e7778-22cb-4cd2-8ca8-cbfcf7742aaf.png"
-        /><br/>
-        P3 Solutions Group Inc.
+        />
+        <Divider>
+          <a target="_blank" rel="noreferrer" href="http://gibhub.com/jdavault"> P3 Solutions Group Inc.</a></Divider>
       </Footer>
     </Layout>
   </Layout>
