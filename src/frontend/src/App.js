@@ -214,7 +214,7 @@ function App() {
                src="https://user-images.githubusercontent.com/3696424/151680918-793e7778-22cb-4cd2-8ca8-cbfcf7742aaf.png"
         />
         <Divider>
-          <a target="_blank" href="http://gibhub.com/jdavault"> P3 Solutions Group Inc.</a></Divider>
+          <a target="_blank" rel="noreferrer" href="http://gibhub.com/jdavault"> P3 Solutions Group Inc.</a></Divider>
       </Footer>
     </Layout>
   </Layout>
