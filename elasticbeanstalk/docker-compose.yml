@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   backend:
-    image: "jdavault/spring-react-fullstack:31.1.2022.5.30.12"
+    image: "jdavault/spring-react-fullstack:31.1.2022.22.49.28"
     ports:
       - "80:8080"
     restart: "always"
