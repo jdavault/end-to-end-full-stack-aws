@@ -7,13 +7,14 @@ on:
   workflow_dispatch:
 
 env:
-  # Postgres
+  #Postgres
   POSTGRESQL_VERSION: 12.7
   POSTGRESQL_DB: springfullstack
   POSTGRESQL_USER: postgres
   POSTGRESQL_PASSWORD: p@55w0Rd
+
   # Java
-    JAVA_VERSION: 1.15
+  JAVA_VERSION: 1.15
 
   # DockerHub
   DOCKER_HUB_USERNAME: jdavault
